@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './grid.scss';
+
+.card-lineup {
+  cursor: pointer;
+  .card-title {
+    position: relative;
+    padding: 0.5rem 1.25rem;
+    background-color: white;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    @include lg {
+      padding: 0.75rem 1.5rem 0.75rem 3rem;
+      min-height: 80px;
+    }
+    &::before {
+      transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0.75rem;
+      height: 100%;
+      background-color: orange;
+      @include lg {
+        width: 2rem;
+      }
+    }
+    span {
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      @include lg {
+        font-size: 1.75rem;
+      }
+    }
+  }
+  &:hover {
+    .card-title {
+      color: white;
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
